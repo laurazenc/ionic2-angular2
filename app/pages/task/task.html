@@ -1,0 +1,91 @@
+<ion-toolbar class="toolbar-task" tasks>
+	<div class="toolbar-wrap">
+		<ion-buttons class="ion-buttons">
+			<button (click)="close()">
+				<ion-icon name="close"></ion-icon>
+			</button>
+		</ion-buttons>
+		<div class="toolbar-content">
+			<ion-title>
+				<div class="toolbar-title">
+					Lista de tareas
+				</div>
+			</ion-title>
+		</div>
+		<ion-buttons class="ion-buttons" (click)="save()">
+			<button>
+				<ion-icon name="download"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons class="ion-buttons" *ngIf="saved == true">
+			<button>
+				<ion-icon name="md-trash"></ion-icon>
+			</button>
+		</ion-buttons>
+	</div>
+</ion-toolbar>
+
+
+
+<ion-content>
+
+    <ion-list>
+    	<form #taskForm="ngForm" novalidate>
+        <ion-item>
+            <ion-label floating tasks>Titulo de la lista</ion-label>
+            <ion-input [(ngModel)]="name" ngControl="name" type="text" required></ion-input>
+        </ion-item>
+				<p [hidden]="name.valid || name != '' || submitted == false" danger padding-left>
+					Introduce un título para la lista de tareas.
+				</p>
+				<ion-list *ngIf="tasks.length > 0">
+					<ion-card *ngFor="let t of tasks" class="task-card">
+						<ion-card-content>
+							<ion-row>
+								<ion-col width-10 padding-vertical text-left class="btn-done">
+										<ion-checkbox  tasks (click)="click(t)"  [(ngModel)]="t.done"></ion-checkbox>
+										{{t.done}}
+								</ion-col>
+								<ion-col width-80 (click)="edit(t)">
+									<ion-item [style.text-decoration] = "t.done ? 'line-through' : 'none'">
+										<h2 class="task-name" stacked>{{t.name}}</h2>
+									</ion-item>
+									<ion-item *ngIf="t.date != ''">
+										<h3 stacked>{{t.date}}</h3>
+									</ion-item>
+									<ion-item *ngIf="t.place != ''">
+		 								<h3 stacked>{{t.place}}</h3>
+		 							</ion-item>
+								</ion-col>
+								<ion-col width-10 text-right>
+									<ion-buttons>
+										<button class="btn-delete" (click)="delete(t)">
+											<ion-icon name="md-close"></ion-icon>
+										</button>
+									</ion-buttons>
+								</ion-col>
+							</ion-row>
+
+
+
+							<!-- <ion-item-options>
+								<button primary> <ion-icon name="clipboard"></ion-icon> Modificar</button>
+								<button danger> <ion-icon name="trash"></ion-icon> Borrar</button>
+							</ion-item-options> -->
+						</ion-card-content>
+					</ion-card>
+				</ion-list>
+
+
+        <!-- <div center padding>
+						<button block tasks (click)="newTask()">Agregar tarea</button>
+				</div> -->
+
+				<button (click)="newTask()" fab fab-bottom fab-right tasks>
+				  <ion-icon name="md-create"></ion-icon>
+				</button>
+			</form>
+    </ion-list>
+
+
+</ion-content>

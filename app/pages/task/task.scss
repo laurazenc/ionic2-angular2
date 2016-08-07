@@ -1,0 +1,60 @@
+.toolbar-task{
+	position: relative;
+	display: table;
+	height: 30px;
+	width: 100%;
+
+	.toolbar-content{
+		display: table-row;
+		width: 100%;
+		.toolbar-wrap{
+
+
+			.ion-buttons, .toolbar-content{
+				display: table-cell;
+				vertical-align: middle;
+				text-align: center;
+			}
+
+			.ion-buttons button{
+				margin: 0 5px;
+			}
+
+
+		}
+	}
+}
+
+.btn-done{
+	vertical-align: middle !important;
+}
+
+.btn-delete{
+	background-color: transparent;
+	box-shadow: none;
+	text-align: right;
+	width: 15px;
+	height: 15px;
+	color: black;
+
+	&:hover{
+		background-color: transparent;
+	}
+}
+
+.task-card{
+	border: 2px solid #bab5ff;
+
+	ion-label, ion-item{
+		padding: 0;
+		margin:0;
+	}
+
+	.item{
+		min-height: auto !important;
+	}
+}
+
+.task-name{
+	font-size: 1.3em !important;
+}

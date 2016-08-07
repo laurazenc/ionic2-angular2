@@ -1,0 +1,29 @@
+<ion-toolbar primary>
+  <ion-buttons start>
+    <button light (click)="close()">
+        <ion-icon name="close"></ion-icon>
+    </button>
+  </ion-buttons>
+    <ion-title center>
+        Elige el tipo de lista
+    </ion-title>
+</ion-toolbar>
+
+<ion-content class="list">
+
+    <ion-card class="card-btn shp" (click)="shoppingList()">
+			<div class="card-title">COMPRA</div>
+			<div class="card-subtitle">Mis productos, cantidad y el precio</div>
+		</ion-card>
+
+		<ion-card class="card-btn tsk" (click)="taskingList()">
+			<div class="card-title">TAREAS</div>
+			<div class="card-subtitle">¿Qué me falta por hacer?</div>
+		</ion-card>
+
+		<ion-card class="card-btn trv" (click)="travelingList()">
+			<div class="card-title">VIAJE</div>
+			<div class="card-subtitle">Lo que necesitaré echar en la maleta</div>
+		</ion-card>
+
+</ion-content>

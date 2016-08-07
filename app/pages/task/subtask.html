@@ -1,0 +1,28 @@
+<ion-toolbar tasks>
+  <ion-buttons start>
+    <button (click)="close()">
+      <ion-icon name="close"></ion-icon>
+    </button>
+  </ion-buttons>
+  <ion-title center>
+    Añadir Tarea
+  </ion-title>
+</ion-toolbar>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Tarea</ion-label>
+      <ion-input type="text" [(ngModel)]="subtask.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Fecha</ion-label>
+      <ion-datetime displayFormat="DD - MMM - YYYY HH:mm" pickerFormat="DD - MMM - YYYY   HH:mm" [(ngModel)]="subtask.date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Lugar</ion-label>
+      <ion-input type="text" [(ngModel)]="subtask.place"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button block padding tasks (click)="save()">Guardar</button>
+</ion-content>
